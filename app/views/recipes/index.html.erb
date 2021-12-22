@@ -2,7 +2,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        レシピ一覧
+        アイデアレシピ一覧
       </h1>
     </div>
   </div>
@@ -32,7 +32,10 @@
                   <div class="title"><%=link_to recipe.user.username, user_path(recipe.user) %></div>
                 </div>
               </div>
-
+              
+              <p><%= link_to "#{recipe.post_comments.count}コメント", recipe_path(recipe.id) %></p> 
+              
+             
               <div class="content">
                 <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>

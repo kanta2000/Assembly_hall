@@ -8,7 +8,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section1">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -46,9 +46,9 @@
       </div>
     </div>
   </div>
-</section>
+</section1>
 
-<section class="section">
+<section class="section1">
   <div class="container">
     <div class="columns is-multiline">
       <% @user.recipes.each do |recipe| %>
@@ -68,22 +68,22 @@
                     <span class="panel-icon">
                       <i class="fas fa-book" aria-hidden="true"></i>
                     </span>
-                    このレシピを見る
+                    このアイデアレシピを見る
                   <% end %>
                   <% if @user.id == current_user.id %>
                     <%= link_to edit_recipe_path(recipe), class: "panel-block" do %>
                       <span class="panel-icon">
                         <i class="fas fa-edit"></i>
                       </span>
-                      このレシピを編集する
+                      このアイデアレシピを編集する
                     <% end %>
                     <%= link_to recipe_path(recipe), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
                       <span class="panel-icon">
                         <i class="fas fa-trash"></i>
                       </span>
-                      このレシピを削除する
+                      このアイデアレシピを削除する
                    <% end %>
-                  <% end %>
+                <% end %>
                 </div>
               </div>
               <div class="content">
@@ -95,4 +95,4 @@
       <% end %>
     </div>
   </div>
-</section>
+</section1>

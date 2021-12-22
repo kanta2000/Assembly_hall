@@ -25,17 +25,17 @@
       <div class="column is-6">
         <%= form_for @recipe do |f| %>
           <div class="field">
-            <%= f.label :title, "レシピ名", class: "label" %>
+            <%= f.label :title, "アイデア名", class: "label" %>
             <%= f.text_field :title, class: "input" %>
           </div>
 
           <div class="field">
-            <%= f.label :body, "作り方", class: "label" %>
+            <%= f.label :body, "内容", class: "label" %>
             <%= f.text_area :body, class: "textarea" %>
           </div>
 
           <div class="field">
-            <%= f.label :image, "写真", class: "label" %>
+            <%= f.label :image, "イメージ・図", class: "label" %>
             <%= f.attachment_field :image, class: "input" %>
           </div>
 

@@ -2,11 +2,12 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        レシピ詳細
+        アイデアレシピ詳細
       </h1>
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container">
@@ -18,7 +19,7 @@
               <%= attachment_image_tag @recipe, :image %>
             </figure>
           </div>
-          <div class="card-content">
+           <div class="card-content">
             <div class="media">
               <div class="media-content">
                 <p class="title is-4"><%= @recipe.title %></p>
@@ -27,7 +28,7 @@
             <div class="content">
               <table class="table is-narrow">
                 <tr>
-                  <th>レシピ</th>
+                  <th>アイデアレシピ</th>
                 </tr>
                 <tr>
                   <td><%= simple_format @recipe.body %></td>
@@ -57,8 +58,32 @@
             </span>
             <%= @recipe.user.username %> さんのページへ
           <% end %>
+
         </article>
       </div>
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="rooms">
+       <h2 style="text-align:center">
+         <div id="chats">
+           <% @recipe.post_comments.each do |post_comment| %>
+           <%= post_comment.user.username %>
+           <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              <div class="mycomment">
+               <p><%= post_comment.comment %></p>
+              </div>
+             <% if post_comment.user == current_user %>
+           <% end %>
+           <p><%= link_to "削除", recipe_post_comment_path(post_comment.recipe, post_comment), method: :delete %></p>
+          <% end %>
+         </div>
+　　　　　 <%= form_with(model:[@recipe, @post_comment], local: true) do |f| %>
+           <%= f.text_area :comment, size:"20x5" ,placeholder: "コメントをここに" %>
+           <p><%= f.submit "送信する" %></p>
+           <% end %>
+    <p>コメント件数：<%= @recipe.post_comments.count %> </p>
+  </div>
+ </section>
